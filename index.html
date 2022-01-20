@@ -18,14 +18,14 @@
         <div class="weather-app-wrapper">
         <div class="weather-app">
             <div class="overview">
-    <h1>
+    <h1 id="city">
         New York
     </h1>
     <ul>
         <li>
             Friday 5:00
         </li>
-        <li>
+        <li id="description">
             Clear
         </li>
     </ul>
@@ -36,7 +36,7 @@
         <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Clear" />
         
        
-         <strong>12</strong><span class="units">°C | <a href= "url" style="text-decoration:none">°F </a> </span>
+         <strong id="temperature">12</strong><span class="units">°C | <a href= "url" style="text-decoration:none">°F </a> </span>
          
          
            
@@ -45,15 +45,13 @@
     
     <div class="col-6">
         <ul>
+            
             <li>
-                Precipitation:0%
-            </li>
-            <li>
-                Humidity: 73%
+                Humidity: <span id="humidity"></span>%
 
             </li>
             <li>
-                Wind: 2 km/h
+                Wind: <span id="wind"></span>km/h
             </li>
         </ul>
         </div>
