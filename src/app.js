@@ -76,9 +76,9 @@ function handleSubmit(event) {
 
 function showFarenheitTemp(event) {
     event.preventDefault();
-    let farenheitTemp= Math.round((14 * 9)/ 5 +32);
     let temperatureElement=document.querySelector("#temperature");
-    temperatureElement.innerHTML= farenheitTemp;
+    let farenheitTemp= (temperatureElement.innerHTML * 9)/5 +32;
+    temperatureElement.innerHTML= Math.round(farenheitTemp);
 
 }
 
