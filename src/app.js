@@ -70,6 +70,15 @@ function handleSubmit(event) {
     let cityInputElement=document.querySelector("#city-input");
     search(cityInputElement.value);
     
+    
+
+}
+
+function showFarenheitTemp(event) {
+    event.preventDefault();
+    let farenheitTemp= Math.round((14 * 9)/ 5 +32);
+    let temperatureElement=document.querySelector("#temperature");
+    temperatureElement.innerHTML= farenheitTemp;
 
 }
 
@@ -77,3 +86,6 @@ search("New York");
 
 let form =document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheihtLink= document.querySelector("#farenheit-link");
+farenheihtLink.addEventListener("click",showFarenheitTemp);
