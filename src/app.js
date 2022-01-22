@@ -69,12 +69,16 @@ function handleSubmit(event) {
 function showFarenheitTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  farenheihtLink.classList.add("active");
   let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemp);
 }
 
 function showCelsiusTemp(event){
     event.preventDefault();
+    farenheihtLink.classList.remove("active");
+    celsiusLink.classList.add("active");
     let temperatureElement=document.querySelector("#temperature");
     temperatureElement.innerHTML=Math.round(celsiusTemperature);
 
