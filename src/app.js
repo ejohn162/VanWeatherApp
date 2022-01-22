@@ -72,7 +72,6 @@ function showFarenheitTemp(event) {
   temperatureElement.innerHTML = Math.round(farenheitTemp);
 }
 
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -80,4 +79,3 @@ let farenheihtLink = document.querySelector("#farenheit-link");
 farenheihtLink.addEventListener("click", showFarenheitTemp);
 
 search("New York");
-
