@@ -34,7 +34,7 @@ function formatDay(timestamp) {
 
 function getForecast(coordinates) {
   let apiKey = "803207aaaf3a18c2e1d94a41af0a3491";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayWeatherForecast);
 }
@@ -65,7 +65,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "803207aaaf3a18c2e1d94a41af0a3491";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -84,13 +84,7 @@ function showFarenheitTemp(event) {
   temperatureElement.innerHTML = Math.round(farenheitTemp);
 }
 
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  farenheihtLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
+
 
 function displayWeatherForecast(response) {
   let dailyForecast=response.data.daily;
@@ -123,7 +117,7 @@ function displayWeatherForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-let celsiusTemperature = null;
+
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -131,7 +125,5 @@ form.addEventListener("submit", handleSubmit);
 let farenheihtLink = document.querySelector("#farenheit-link");
 farenheihtLink.addEventListener("click", showFarenheitTemp);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("New York");
