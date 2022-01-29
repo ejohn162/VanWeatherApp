@@ -19,15 +19,22 @@
         <div class="weather-app">
             <form id="search-form" class="mb-3">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-6">
                 <input type="search" placeholder="Type a city..." class="form-control"
                 id="city-input"
                 autocomplete="off"/>
                 </div>
                 <div class="col-3">
-                <input type="submit" value="Search" class="btn btn-primary">
+                <input type="submit" value="Search" class="btn btn-primary w-100" />
+                
                 </div>
-                </div>
+                 <div class="col-3">
+            <button class="btn btn-success w-100"
+            id="current-location-button">
+            Current 
+          </button>
+        </div>
+        
             </form>
             <div class="overview">
     <h1 id="city">
@@ -75,7 +82,7 @@
      <div class="weather-forecast" id="forecast">
          
      </div>
-    
+    </div>
     </div>
     <small>
         <a href="https://github.com/ejohn162/VanWeatherApp" target="_blank">Open-source code</a>

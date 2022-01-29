@@ -119,13 +119,19 @@ function displayWeatherForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(search);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let farenheihtLink = document.querySelector("#farenheit-link");
 farenheihtLink.addEventListener("click", showFarenheitTemp);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 
 search("New York");

@@ -3,6 +3,9 @@
     padding: 20px;
     border: 1px solid #dadde1;
     border-radius: 5px;
+    background-color: lightblue;
+    
+    
 }
 h1{
   color: #878787;
@@ -10,6 +13,7 @@ h1{
   font-weight: 100;
   line-height: 28px;
   margin-bottom: 0;
+  padding-top: 20px;
 }
 body{
     font-family: arial, sans-serif;
@@ -35,6 +39,8 @@ ul{
 .weather-app-wrapper{
     max-width:600px;
     margin: 30px auto;
+    
+    
 
 }
 .overview{
@@ -58,6 +64,7 @@ ul{
     position: relative;
     font-size:14px;
     top: -34px;
+   
 
 }
 .weather-temperature .active {
@@ -72,6 +79,7 @@ ul{
 .weather-forecast{
     margin-top:20px;
     text-align:center;
+    
     
 
 }
