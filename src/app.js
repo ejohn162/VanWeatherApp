@@ -1,12 +1,15 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.getHours();
-   hours = ((hours + 11) % 12) + 1;
-   let minutes = date.getMinutes();
-   if (minutes < 10) {
-     minutes = `0${minutes}`;
-   }
-  let ampm =date.getHours() <12 ? "AM" : "PM";
+  let nowTimeDate= new Date();
+  let nowHour= nowTimeDate.getHours();
+  let nowMinutes =nowTimeDate.getMinutes();
+  let suffix = nowHour >= 12 ? "pm" :"am";
+  nowHour =(suffix == "pm" & (nowHour>12 & nowHour <24)) ? (nowHour - 12) : nowHour;
+  nowHour=nowHour ==0 ? 12 :nowHour;
+  nowMinutes=nowMinutes< 10 ? "0" + nowMinutes : nowMinutes;
+  let currentTime =nowHour +":" +nowMinutes +suffix;
+
+
   let days = [
     "sunday",
     "Monday",
@@ -17,7 +20,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes} ${ampm}`;
+  return `${day} ${nowHour}:${nowMinutes} ${suffix}`;
 
 }
 function formatDay(timestamp) {
@@ -127,6 +130,7 @@ function searchLocation(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+
 }
 
 let form = document.querySelector("#search-form");
