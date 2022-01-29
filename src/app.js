@@ -119,9 +119,15 @@ function displayWeatherForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+function searchLocation(position) {
+  let apiKey = "893f85209adc85644388072cc867bd9e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
 function getCurrentLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(search);
+  navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 let form = document.querySelector("#search-form");
