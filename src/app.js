@@ -1,12 +1,12 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  hours = (hours % 12) || 12;
-  if (hours==0){
-      hours=21
-  }
-  let minutes = date.getMinutes();
-  let finalTime ="Time - " +hours +":"+minutes+"";
+   hours = ((hours + 11) % 12) + 1;
+   let minutes = date.getMinutes();
+   if (minutes < 10) {
+     minutes = `0${minutes}`;
+   }
+  let ampm =date.getHours() <12 ? "AM" : "PM";
   let days = [
     "sunday",
     "Monday",
@@ -17,9 +17,8 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes} ${ampm}`;
 
-  return ` ${finalTime}`;
 }
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -121,7 +120,7 @@ function displayWeatherForecast(response) {
 }
 function searchLocation(position) {
   let apiKey = "893f85209adc85644388072cc867bd9e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
